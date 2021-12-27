@@ -49,6 +49,9 @@ class RegisterListView(FormView, BaseClassContextMixin):
         message = f'Для подтверждения учетной записи {user.username} на портале \n {settings.DOMAIN_NAME}{verify_link}'
         return send_mail(subject, message, settings.EMAIL_HOST_USER, [user.email], fail_silently=False)
 
+    def verify(self, email, activate_key):
+        pass
+
 class ProfileFormView(UpdateView, BaseClassContextMixin, UserDispatchMixin):
     template_name = 'authapp/profile.html'
     form_class = UserProfilerForm
