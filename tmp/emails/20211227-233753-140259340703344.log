@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0JTQu9GPINCw0LrRgtC40LLQsNGG0LjQuCDRg9GH0LXRgtC90L7QuSDQt9Cw0L8=?=
+ =?utf-8?b?0LjRgdC4IFJvbWFuINC/0YDQvtC50LTQuNGC0LUg0L/QviDRgdGB0YvQu9C60LU=?=
+From: django@gb.local
+To: roman@yandex.ru
+Date: Mon, 27 Dec 2021 23:37:53 -0000
+Message-ID: <164064827397.27203.14146179996741903485@Roman>
+
+Для подтверждения учетной записи Roman на портале 
+ http://localhost:8000/users/verify/roman@yandex.ru/f01d5ca4bfe0c04ac7d315cdd8bd62f9fcbe8a5b/
+-------------------------------------------------------------------------------
