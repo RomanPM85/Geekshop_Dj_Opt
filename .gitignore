@@ -3,3 +3,4 @@ db.sqlite3_old
 ../venv
 .env
 **/__pycache__
+/media/users_image/7.jpg
