@@ -4,9 +4,13 @@ from django.shortcuts import render
 
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, TemplateView
 
+from mainapp.mixin import BaseClassContextMixin
+from ordersapp.models import Order
 
-class OrderListView(ListView):
-    pass
+
+class OrderListView(ListView, BaseClassContextMixin):
+    model = Order
+    title = 'Geekshop | Список заказов'
 
 
 class OrderDetailView(DetailView):
