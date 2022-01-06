@@ -29,6 +29,8 @@ urlpatterns = [
     path('users/', include('authapp.urls', namespace='authapp')),
     path('baskets/', include('baskets.urls', namespace='baskets')),
     path('admins/', include('admins.urls', namespace='admins')),
+    path('orders/', include('ordersapp.urls', namespace='orders')),
+
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url('', include('social_django.urls', namespace='social')),
 
