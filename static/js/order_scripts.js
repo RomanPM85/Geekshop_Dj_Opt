@@ -94,8 +94,6 @@ window.onload = function () {
         let orderitem_product_pk = target.options[target.selectedIndex].value;
 
 
-//        console.log(orderitem_num)
-//        console.log(orderitem_product_pk)
 
         if (orderitem_product_pk) {
 
