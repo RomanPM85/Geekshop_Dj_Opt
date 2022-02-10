@@ -19,18 +19,26 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def products(request,id_category=None,page=1):
+def products(request, id_category=None, page=1):
 
     context = {
         'title': 'Geekshop | Каталог',
     }
 
     if id_category:
-        products= Product.objects.filter(category_id=id_category)
+        """
+        добавляем select_related('category') для загрузки из сервера всех данных по категории,
+        чтобы не обращаться каждый раз к серверу
+        """
+        products = Product.objects.filter(category_id=id_category).select_related('category')
     else:
-        products = Product.objects.all()
+        products = Product.objects.all().select_related()
+        """
+        добавляем prefetch_related если имеем связи многие ко многим
+        """
+        # products = Product.objects.all().prefetch_related()
 
-    paginator = Paginator(products,per_page=3)
+    paginator = Paginator(products, per_page=3)
 
     try:
         products_paginator = paginator.page(page)
@@ -38,7 +46,6 @@ def products(request,id_category=None,page=1):
         products_paginator = paginator.page(1)
     except EmptyPage:
         products_paginator = paginator.page(paginator.num_pages)
-
 
     context['products'] = products_paginator
     context['categories'] = ProductCategory.objects.all()
