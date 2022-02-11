@@ -45,6 +45,18 @@ def get_product():
         return Product.objects.all().select_related('category')
 
 
+def get_product_one(pk):
+    if settings.LOW_CACHE:
+        key = f'product{pk}'
+        product = cache.get(key)
+        if product is None:
+            product = Product.objects.get(id=pk)
+            cache.set(key, product)
+        return product
+    else:
+        return Product.objects.get(id=pk)
+
+
 def products(request, id_category=None, page=1):
 
     context = {
@@ -86,9 +98,9 @@ class ProductDetail(DetailView):
     model = Product
     template_name = 'mainapp/detail.html'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(ProductDetail, self).get_context_data(**kwargs)
-    #     product = self.get_object()
-    #     context['product'] = product
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetail, self).get_context_data(**kwargs)
+        # product = self.get_object()
+        context['product'] = get_product_one(self.kwargs.get('pk'))
+        return context
 
