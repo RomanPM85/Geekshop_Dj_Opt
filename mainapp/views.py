@@ -39,7 +39,7 @@ def get_product():
         link_product = cache.get(key)
         if link_product is None:
             link_product = Product.objects.all().select_related('category')
-            cache.set(key,link_product)
+            cache.set(key, link_product)
         return link_product
     else:
         return Product.objects.all().select_related('category')
