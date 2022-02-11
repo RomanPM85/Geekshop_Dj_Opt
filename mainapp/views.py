@@ -4,6 +4,7 @@ from django.shortcuts import render
 import json
 import os
 
+from django.views.decorators.cache import cache_page, never_cache
 from django.views.generic import DetailView
 from django.conf import settings
 from django.core.cache import cache
@@ -57,6 +58,8 @@ def get_product_one(pk):
         return Product.objects.get(id=pk)
 
 
+@cache_page(3600)
+# @never_cache
 def products(request, id_category=None, page=1):
 
     context = {
@@ -86,8 +89,8 @@ def products(request, id_category=None, page=1):
         products_paginator = paginator.page(paginator.num_pages)
 
     context['products'] = products_paginator
-    # context['categories'] = ProductCategory.objects.all()
-    context['categories'] = get_link_category()
+    context['categories'] = ProductCategory.objects.all()
+    # context['categories'] = get_link_category()
     return render(request, 'mainapp/products.html', context)
 
 
