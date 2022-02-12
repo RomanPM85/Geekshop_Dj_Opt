@@ -169,13 +169,14 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/'
 
-# DOMAIN_NAME = 'http://mamchiy.site'
-# EMAIL_HOST = 'smtp.yandex.ru'
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DOMAIN_NAME = '80.78.241.223'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = True
+
 # EMAIL_USE_SSL = True if os.getenv('EMAIL_USE_SSL') == 'True' else False
-#
 # SERVER_EMAIL = os.getenv('EMAIL_HOST_USER')
 # DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
 
