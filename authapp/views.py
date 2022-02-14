@@ -20,6 +20,11 @@ class LoginListView(LoginView, BaseClassContextMixin):
     form_class = UserLoginForm
     title = 'GeekShop - Авторизация'
 
+    # def get(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated:
+    #         return HttpResponseRedirect(reverse('index'))
+    #     return HttpResponseRedirect(reverse('authapp:login'))
+
 
 class RegisterListView(FormView, BaseClassContextMixin):
     model = User
@@ -88,6 +93,7 @@ class ProfileFormView(UpdateView, BaseClassContextMixin, UserDispatchMixin):
         context = super(ProfileFormView, self).get_context_data(**kwargs)
         context['profile'] = UserProfileEditForm(instance=self.request.user.userprofile)
         return context
+
 
 class Logout(LogoutView):
     template_name = "mainapp/index.html"

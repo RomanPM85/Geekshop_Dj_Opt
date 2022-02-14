@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'geekshop.mid.DisableCSRFMiddleware',
+    # 'geekshop.mid.DisableCSRFMiddleware',  # для кеширования, убираем токены
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -169,7 +169,7 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/'
 
-DOMAIN_NAME = 'http://mamchiy.site'
+# DOMAIN_NAME = 'http://mamchiy.site'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = '465'
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
@@ -180,7 +180,7 @@ EMAIL_USE_SSL = True
 # SERVER_EMAIL = os.getenv('EMAIL_HOST_USER')
 # DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
 
-# DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://localhost:8001'
 # EMAIL_HOST = 'localhost'
 # EMAIL_PORT = 25
 # EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
